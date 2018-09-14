@@ -1,16 +1,17 @@
-# GGF
+# Node GrapqlQL boilerplate project..
 
 ## 사용 플랫폼
 
-- aws
-  - lambda
-  - dynamodb
 - node
   - typescript
   - graphql-yoga
   - handlebars
   - joi
   - jsonwebtoken
+- aws
+  - lambda
+  - dynamodb
+- serverless framework
 - mailgun
 - tdd : jest
 
