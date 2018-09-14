@@ -1,0 +1,44 @@
+type User {
+  uuid: String! @uniqu
+  tag: String!
+  name: String!
+  email: String!
+  """
+  배틀 포인트
+  """
+  bp: Int
+  """
+  스폰서 포인트
+  """
+  sp: Int
+  icon: String
+  certify: Boolean!
+}
+
+type Query {
+  myinfo: User
+  user(uuid: String!): User
+}
+
+type AuthResult {
+  """
+  인증 토큰
+  """
+  token: String!
+  user: User
+}
+
+type Mutation {
+  """
+  회원 가입
+  """
+  signup(email: String!, name: String!, password: String!): Boolean!
+  """
+  로그인
+  """
+  login(email: String!, password: String!): AuthResult!
+  """
+  이메일 인증하기
+  """
+  certify(code: String!): Boolean!
+}

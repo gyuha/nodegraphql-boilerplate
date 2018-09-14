@@ -1,0 +1,64 @@
+{
+  "name": "lambda-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "start": "serverless offline",
+    "deploy": "serverless deploy",
+    "tail": "sls logs -f graphql --tail -F",
+    "tailb": "sls logs -f playground --tail -F",
+    "lint": "tslint 'src/**/*.{ts,tsx}'",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Kim Brandwijk <kim.brandwijk@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.312.0",
+    "bcrypt": "^3.0.0",
+    "dotenv": "^6.0.0",
+    "dynamoose": "^0.8.7",
+    "graphql-middleware": "^1.7.2",
+    "graphql-yoga": "^1.16.2",
+    "handlebars": "^4.0.12",
+    "joi": "^13.6.0",
+    "jsonwebtoken": "^8.3.0",
+    "mailgun-js": "^0.20.0",
+    "merge-graphql-schemas": "^1.5.3",
+    "shortid": "^2.2.13"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "@types/node": "^10.9.4",
+    "jest": "^23.6.0",
+    "prettier": "^1.14.2",
+    "prettier-tslint": "^0.4.0",
+    "serverless": "^1.30.3",
+    "serverless-offline": "^3.25.11",
+    "serverless-plugin-typescript": "^1.1.5",
+    "ts-jest": "^23.1.4",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.0.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$"
+  }
+}
