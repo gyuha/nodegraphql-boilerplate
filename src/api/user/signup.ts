@@ -4,7 +4,7 @@ import * as handlebars from "handlebars";
 
 import { existUserField, basicAuthSchema, nameSchema } from "./common";
 import * as shortid from "shortid";
-import * as bcrypt from "bcrypt";
+import * as bcrypt from "bcryptjs";
 
 // 회원 인증 메일 발송
 function certifyMailSend(name: string, email: string, tag: string) {

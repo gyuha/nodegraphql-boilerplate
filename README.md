@@ -2,16 +2,16 @@
 
 ## 사용 플랫폼
 
+- aws
+  - lambda
+  - dynamodb
 - node
   - typescript
   - graphql-yoga
   - handlebars
   - joi
   - jsonwebtoken
-- aws
-  - lambda
-  - dynamodb
-- serverless framework
+  - dynamoose
 - mailgun
 - tdd : jest
 
@@ -47,24 +47,17 @@ $ java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 $ sudo yarn global add dynamodb-admin -g
 ```
 
-#### 실행
+실행
 
 ```
 $ DYNAMO_ENDPOINT=http://localhost:8000; dynamodb-admin
 ```
-
-#### 웹 브라우저로 띄우기
-
-> http://127.0.0.1:8001
-
 
 ## DB Migrate
 
 ```bash
 ts-node migrate
 ```
-
-기본 데이터 베이스를 만들어 줍니다.
 
 ## 개발
 
@@ -74,24 +67,13 @@ ts-node migrate
 $ yarn start
 ```
 
-### Deploy
-```
-$ yarn deploy
-```
-
-### Test
-```
-$ yarn test
-```
-
 ## API 개발 순서
 
-1. `handelers`에서 함수 구현
-1. `typeDefs`에서 graphql 제작
-1. `resolvers`에서 함수 연결
+1. `api`에서 함수 및 graphql 파일 작성
+1. `src/graphql.ts`파일에서 `xxx.resolvers.ts` 파일을 `import`해 줘야 함.. 그래야 컴파일 시 js 파일이 생성 됨.
 1. `middleware`에서 퍼미션 넣어 주기
 
-## 인증 코드 보내기
+## middleware 용 인증 코드 보내기
 
 http header 에 인증 토큰을 같이 보내 줘야 한다.
 
@@ -104,3 +86,7 @@ http header 에 인증 토큰을 같이 보내 줘야 한다.
 grapql 툴 띄우기
 
 > http://127.0.0.1:3000
+
+## Tip
+
+- `bcrypt`는 aws lambda 에서 돌아가지 않는다. 대신 `bcryptjs`를 사용 해 줘야 한다.

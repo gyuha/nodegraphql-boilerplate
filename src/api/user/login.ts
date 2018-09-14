@@ -1,6 +1,6 @@
 import { User } from "../../models/user";
 import { basicAuthSchema, makeToken } from "./common";
-import * as bcrypt from "bcrypt";
+import * as bcrypt from "bcryptjs";
 import * as joi from "joi";
 interface ILoginResult {
   token?: string;

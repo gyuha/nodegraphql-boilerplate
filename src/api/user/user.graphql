@@ -1,0 +1,26 @@
+type User {
+  uuid: String!
+  tag: String!
+  name: String!
+  email: String!
+  bp: Int
+  sp: Int
+  icon: String
+  certify: Boolean!
+}
+
+type Query {
+  myinfo: User
+  user(uuid: String!): User
+}
+
+type AuthResult {
+  token: String!
+  user: User
+}
+
+type Mutation {
+  signup(email: String!, name: String!, password: String!): Boolean!
+  login(email: String!, password: String!): AuthResult!
+  certify(code: String!): Boolean!
+}

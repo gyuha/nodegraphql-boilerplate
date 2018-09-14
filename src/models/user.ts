@@ -7,14 +7,6 @@ export const UserSchema = new db.Schema(
       type: String,
       hasKey: true
     },
-    bp: {
-      type: Number,
-      default: 10000
-    },
-    sp: {
-      type: Number,
-      default: 10000
-    },
     role: {
       type: Number,
       default: 100
@@ -52,7 +44,7 @@ export const UserSchema = new db.Schema(
     }
   },
   {
-    throughput: { read: 15, write: 5 },
+    throughput: { read: 1, write: 1 },
     timestamps: true
   }
 );

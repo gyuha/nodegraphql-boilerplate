@@ -1,10 +1,10 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Resources:
   Server:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: server.handler
+      Handler: src/server.handler
       Runtime: nodejs8.10
       Events:
         AnyRequest:
@@ -15,7 +15,7 @@ Resources:
   Playground:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: server.playground
+      Handler: src/server.playground
       Runtime: nodejs8.10
       Events:
         AnyRequest:

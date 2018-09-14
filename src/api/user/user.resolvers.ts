@@ -1,7 +1,7 @@
-import { signup } from "../handlers/users/signup";
-import { login } from "../handlers/users/login";
-import { certify } from "../handlers/users/certify";
-import { user } from "../handlers/users/user";
+import { signup } from "./signup";
+import { login } from "./login";
+import { certify } from "./certify";
+import { user } from "./user";
 
 export default {
   Query: {

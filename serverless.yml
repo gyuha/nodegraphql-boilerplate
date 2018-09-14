@@ -1,33 +1,40 @@
-service: ggf-graphql # NOTE: update this with your service name
+service: ggf-server # NOTE: update this with your service name
 
 plugins:
   - serverless-plugin-typescript
   - serverless-offline
+  - serverless-s3-remover
 
 provider:
   name: aws
-  runtime: nodejs6.10
-  region: ap-northeast-2
+  runtime: nodejs8.10
+  region: us-west-1
   environment:
     SITE_HOME: http://catseven.cafe24.com
 
 package:
-  include: 
-    - ./typeDefs/**.graphql
-    - ./templates/**.html
+  include:
+    - ./src/schema.graphql
+    - ./src/templates/**/*.html
 
 functions:
-  graphql:
-    handler: server.handler
+  server:
+    handler: src/server.handler
     events:
-    - http:
-        path: /
-        method: post
-        cors: true
+      - http:
+          path: /
+          method: post
+          cors: true
   playground:
-    handler: server.playground
+    handler: src/server.playground
     events:
-    - http:
-        path: /
-        method: get
-        cors: true
+      - http:
+          path: /
+          method: get
+          cors: true
+
+custom:
+  remover:
+    buckets:
+      - server
+      - playground
